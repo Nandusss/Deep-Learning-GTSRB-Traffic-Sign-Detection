@@ -182,11 +182,26 @@ class TrafficSignClassifier:
         plt.show()
 
 if __name__ == "__main__":
+    print("Initializing TrafficSignClassifier...")
     classifier = TrafficSignClassifier()
+    
+    print("Extracting dataset...")
     classifier.extract_dataset()
+    
+    print("Plotting class distribution...")
     classifier.plot_class_distribution()
+    
+    print("Loading data...")
     image_data, image_labels = classifier.load_data()
+    
+    print("Preprocessing data...")
     X_train, X_val, y_train, y_val = classifier.preprocess_data(image_data, image_labels)
+    
+    print("Building model...")
     classifier.build_model()
+    
+    print("Training model...")
     classifier.train_model(X_train, y_train, X_val, y_val)
+    
+    print("Evaluating model...")
     classifier.evaluate_model()
